@@ -1,13 +1,12 @@
-require 'rubygems'
 require 'uri'
 require 'net/http'
 require 'json'
-require 'pry'
-
-require_relative "./browser_stack/version"
-require_relative "./browser_stack/configuration"
-require_relative "./browser_stack/api_request"
-require_relative "./browser_stack/client"
+require "browser_stack/version"
+require "browser_stack/configuration"
+require "browser_stack/api_request"
+require "browser_stack/browser"
+require "browser_stack/worker"
+require "browser_stack/api_status"
 
 module BrowserStack
   # Your code goes here...

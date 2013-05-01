@@ -32,17 +32,48 @@ Or install it yourself as:
 ```
  # /browsers
 
- client = BrowserStack::Client.get_browsers
+ client = BrowserStack::Browser.get_browsers
  client.parse_response
 
  #/browsers?flat=true
 
- client = BrowserStack::Client.get_browsers(true)
+ client = BrowserStack::Browser.get_browsers(true)
  client.parse_response
+
  # In General for all request
  client.response # will be the http response
- client.response.code # http response
+ client.response.code # http response code
+ client.api_error?
+ cleint.error_message
 
+```
+### Create a New Browser Worker
+```
+# /worker
+  worker = BrowserStack::Worker.create_worker({:os=>"Windows",:os_version=>'7',:url=>"url",:browser=>"ie",:browser_version=>"8.0"})
+  worker.parse_response
+```
+### Terminating a worker
+```
+# /worker/:id
+  delete_worker = BrowserStack::Worker.treminate_worker(worker_id)
+  worker.parse_response
+```
+### Getting Worker Status
+```
+# /worker/:id
+  worker_status = BrowserStack::Worker.get_worker_status(worker_id)
+  worker.parse_response
+
+# /workers  (Get All worker status)
+  worker_status = BrowserStack::Worker.get_all_worker_status
+  worker.parse_response
+```
+
+### Getting API Status
+```
+# /status
+  api_status = BrowserStack::ApiStatus.get_status
 ```
 
 ## Contributing
